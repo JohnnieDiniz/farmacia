@@ -2,13 +2,13 @@ import { type ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type Categoria from '../../models/Categoria';
 import { buscar, atualizar, cadastrar } from '../../service/Service';
+import { ToastAlerta } from '../../utils/ToastAlerta';
 
 
 function FormCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
     nome: '',
-    descricao: ''
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   
@@ -39,16 +39,16 @@ function FormCategoria() {
     if (id !== undefined) {
       try {
         await atualizar(`/categorias`, categoria, setCategoria);
-        alert('Categoria atualizada com sucesso');
+        ToastAlerta('Categoria atualizada com sucesso', 'sucesso');
       } catch (error: any) {
-        alert('Erro ao atualizar a Categoria');
+        ToastAlerta('Erro ao atualizar a Categoria', 'erro');
       }
     } else {
       try {
         await cadastrar(`/categorias`, categoria, setCategoria);
-        alert('Categoria cadastrada com sucesso');
+        ToastAlerta('Categoria cadastrada com sucesso', 'sucesso');
       } catch (error: any) {
-        alert('Erro ao cadastrar a Categoria');
+        ToastAlerta('Erro ao cadastrar a Categoria', 'erro');
       }
     }
 
@@ -86,7 +86,6 @@ function FormCategoria() {
             placeholder="Descrição"
             name='descricao'
             className="border-2 border-slate-300 rounded-lg p-2 outline-none focus:border-red-600"
-            value={categoria.descricao}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
         </div>

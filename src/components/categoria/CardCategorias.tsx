@@ -14,7 +14,6 @@ function CardCategorias({ categoria }: CardCategoriaProps) {
       </header>
       <div className='p-4 bg-white h-full'>
         <h4 className='text-lg font-semibold uppercase'>{categoria.nome}</h4>
-        <p className='text-gray-600 mt-2'>{categoria.descricao}</p>
       </div>
       <div className="flex">
         <Link to={`/formcategoria/${categoria.id}`} className='w-full text-white bg-blue-600 hover:bg-blue-800 flex items-center justify-center py-2 transition-colors'>

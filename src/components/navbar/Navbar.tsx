@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { PillIcon, MagnifyingGlassIcon, UserIcon, ShoppingCartIcon } from "@phosphor-icons/react";
+import { ShoppingCartIcon, PillIcon, MagnifyingGlassIcon, UserIcon } from "@phosphor-icons/react";
 
 function Navbar() {
   return (
@@ -29,6 +29,9 @@ function Navbar() {
         {/* Links de Navegação e Ícones */}
         <div className="flex items-center gap-8">
           <div className="flex gap-5 font-medium">
+            <Link to="/produtos" className="hover:text-red-200 transition-colors duration-300">
+              Produtos
+            </Link>
             <Link to="/categorias" className="hover:text-red-200 transition-colors duration-300">
               Categorias
             </Link>
